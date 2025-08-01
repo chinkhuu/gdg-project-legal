@@ -9,4 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateAttorney extends CreateRecord
 {
     protected static string $resource = AttorneyResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }
