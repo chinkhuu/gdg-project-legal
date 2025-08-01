@@ -36,7 +36,11 @@ class BookResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->sortable()
+                    ->dateTime(),
             ])
             ->filters([
                 //

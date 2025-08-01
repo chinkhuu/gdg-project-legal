@@ -23,7 +23,19 @@ class FaqResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\Select::make('category_id')
+                    ->label('Категори')
+                    ->relationship('category', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->required(),
+
+                Forms\Components\TextInput::make('question')
+                    ->required()
+                    ->maxLength(255),
+
+                Forms\Components\TextInput::make('answer')
+                    ->required(),
             ]);
     }
 
@@ -31,7 +43,13 @@ class FaqResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('category.name')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('question')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->sortable()
+                    ->dateTime(),
             ])
             ->filters([
                 //
