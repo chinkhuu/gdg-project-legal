@@ -5,7 +5,7 @@
     </p>
     <div
         id="chat-window"
-        class="h-96 overflow-y-auto flex flex-col space-y-4 mb-4 px-4 py-3 bg-gray-100 rounded-lg"
+        class="h-96 overflow-y-auto flex flex-col space-y-4 mb-4 px-4 py-3 bg-blue-50 rounded-lg"
     >
         @foreach($messages as $msg)
             <div
