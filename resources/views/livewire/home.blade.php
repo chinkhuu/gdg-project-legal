@@ -1,0 +1,103 @@
+<div class="bg-gray-100 py-12 rounded-3xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold mb-10 text-center text-zinc-800">Манай Хуульчид</h1>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            @forelse($lawyers as $lawyer)
+                <div class="group bg-white rounded-2xl shadow-md text-center p-6 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                    <div class="relative flex justify-center mb-4">
+                        <img
+                            class="w-36 h-36 rounded-full object-cover border-4 border-white shadow-lg transition-transform duration-300 group-hover:scale-105"
+                            src="{{ $lawyer->profile ?? 'https://ui-avatars.com/api/?name=' . urlencode($lawyer->name) . '&background=f59e0b&color=fff' }}"
+                            alt="{{ $lawyer->name }}"
+                        >
+                    </div>
+
+                    <h2 class="text-xl font-semibold text-zinc-900 uppercase tracking-wide">{{ $lawyer->name }}</h2>
+                    @if($lawyer->segment)
+                        <p class="inline-block mt-1 px-3 py-1 text-xs font-medium text-amber-800 bg-amber-100 rounded-full">
+                            {{ $lawyer->segment->name }}
+                        </p>
+                    @endif
+
+                    <div class="mt-6">
+                        <flux:modal.trigger
+                            as="flux:button"
+                            variant="primary"
+                            size="sm"
+                            name="lawyer-detail-{{ $lawyer->id }}"
+                        >
+                            <flux:button size="sm" variant="primary">Дэлгэрэнгүй</flux:button>
+
+                        </flux:modal.trigger>
+                    </div>
+
+                    <flux:modal name="lawyer-detail-{{ $lawyer->id }}" class="md:max-w-2xl text-left">
+                        <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 p-1">
+                            <div class="flex-shrink-0 text-center sm:text-left">
+                                <img
+                                    class="w-40 h-40 rounded-full object-cover mx-auto border-4 border-white shadow-lg"
+                                    src="{{ $lawyer->profile ?? 'https://ui-avatars.com/api/?name=' . urlencode($lawyer->name) . '&background=f59e0b&color=fff&size=160' }}"
+                                    alt="{{ $lawyer->name }}"
+                                >
+                                <h2 class="mt-4 text-2xl font-bold text-zinc-900">{{ $lawyer->name }}</h2>
+                                @if($lawyer->segment)
+                                    <p class="text-amber-600 font-semibold">{{ $lawyer->segment->name }}</p>
+                                @endif
+                            </div>
+
+                            <div class="flex-grow pt-2">
+                                <flux:heading size="lg">Холбоо барих мэдээлэл</flux:heading>
+                                <div class="mt-4 space-y-4 text-zinc-700">
+                                    <div class="flex items-start gap-3">
+                                        <svg class="w-5 h-5 text-zinc-400 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 00.281-.14c.186-.1.4-.27.615-.454L16 14.55V7a6 6 0 10-12 0v7.55l4.11 3.918zM10 2a4 4 0 100 8 4 4 0 000-8z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>Бүс нутаг: <span class="font-medium text-zinc-900">{{ $lawyer->region ?? 'Тодорхойгүй' }}</span></span>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <svg class="w-5 h-5 text-zinc-400 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z"/>
+                                            <path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z"/>
+                                        </svg>
+                                        <span>И-мэйл: <a href="mailto:{{ $lawyer->email }}" class="font-medium text-blue-600 hover:underline">{{ $lawyer->email }}</a></span>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <svg class="w-5 h-5 text-zinc-400 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5h-1.528a1.5 1.5 0 01-1.475-1.232l-.358-1.433a1.5 1.5 0 00-1.433-.966H8.57a1.5 1.5 0 00-1.433.966l-.358 1.433A1.5 1.5 0 015.303 18H3.5A1.5 1.5 0 012 16.5v-13z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>Утас: <a href="tel:{{ $lawyer->phone }}" class="font-medium text-blue-600 hover:underline">{{ $lawyer->phone }}</a></span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-8 border-t pt-6 flex flex-col sm:flex-row gap-3">
+                                    <flux:button as="a" href="mailto:{{ $lawyer->email }}" class="w-full justify-center">
+                                        <svg class="w-5 h-5 -ml-1 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z"/>
+                                            <path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z"/>
+                                        </svg>
+                                        И-мэйл илгээх
+                                    </flux:button>
+                                    <flux:button as="a" href="#" variant="primary" class="w-full justify-center">
+                                        <svg class="w-5 h-5 -ml-1 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M5.25 12.223a.75.75 0 001.06 1.06l4.25-4.25a.75.75 0 00-1.06-1.06L5.25 12.223z"/>
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM4 10a6 6 0 1112 0 6 6 0 01-12 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        Уулзалт товлох
+                                    </flux:button>
+                                </div>
+                            </div>
+                        </div>
+                    </flux:modal>
+                </div>
+            @empty
+                <div class="col-span-full flex flex-col items-center justify-center py-16 bg-white rounded-2xl shadow-sm">
+                    <svg class="w-16 h-16 text-zinc-300 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                    </svg>
+                    <p class="text-xl font-semibold text-zinc-600">Илэрц олдсонгүй</p>
+                </div>
+            @endforelse
+        </div>
+    </div>
+</div>

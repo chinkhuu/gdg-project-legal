@@ -47,8 +47,6 @@ class AttorneyResource extends Resource
                     ->maxLength(255),
 
                 Forms\Components\TextInput::make('phone')
-                    ->email()
-                    ->unique(ignoreRecord: true)
                     ->required()
                     ->maxLength(20),
 

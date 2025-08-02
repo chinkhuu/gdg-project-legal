@@ -24,10 +24,12 @@ class ExplanationResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->columnSpanFull()
                     ->required()
                     ->maxLength(255),
 
                 Forms\Components\RichEditor::make('description')
+                    ->columnSpanFull()
                     ->required()
             ]);
     }

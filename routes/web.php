@@ -5,9 +5,11 @@ use Inertia\Inertia;
 use Livewire\Volt\Volt;
 
 Route::get('/', function () {
-    $lawyers = \App\Models\Attorney::all();
-    return view('pages.home', compact('lawyers'));
+    return view('pages.home');
 })->name('home');
+
+Route::get('/lawyers' , \App\Livewire\Lawyers::class )->name('lawyers');
+Route::get('/explanations' , \App\Livewire\Explanation::class )->name('explanations');
 
 Route::get('/gemini-chat', function () {
     return view('chat');
@@ -28,11 +30,5 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/password', 'settings.password')->name('settings.password');
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 });
-
-Route::get('chat', function () {
-    return Inertia::render('Chat');
-})->name('chat');
-
-
 
 require __DIR__.'/auth.php';

@@ -1,19 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="bg-amber-50 dark:bg-zinc-900 text-zinc-900 dark:text-white py-20">
-        <div class="max-w-4xl mx-auto text-center px-4">
-            <p class="text-sm font-medium uppercase tracking-wider mb-2">WELCOME TO PROSPECT</p>
-            <h1 class="text-5xl font-serif font-bold mb-4">Built for <span class="italic">Fast-Moving</span> Businesses.</h1>
-            <p class="text-lg mb-8">Prospect surfaces what matters, automates the rest, and keeps you moving with intention.</p>
+    <section class="bg-amber-50 dark:bg-zinc-900 text-zinc-900 dark:text-white py-20 rounded-3xl shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm font-medium uppercase tracking-wider mb-2">ТАВТАЙ МОРИЛ</p>
+            <h1 class="text-5xl font-serif font-bold mb-4">
+                Хуулийн <span class="italic">шуурхай</span> шийдлийг танд зориуллаа.
+            </h1>
+            <p class="text-lg mb-8">
+                Манай платформ нь таны хэрэгцээг тодорхойлж, шаардлагатай мэдээллийг автоматаар хүргэж, таны цагийг хэмнэнэ.
+            </p>
             <div class="flex justify-center gap-4 mb-8">
-                <flux:button variant="primary" >Get started now</flux:button>
-                <flux:button variant="outline">Explore more</flux:button>
+                <flux:button variant="primary">Үйлчилгээ авах</flux:button>
+                <flux:button variant="outline">Дэлгэрэнгүй</flux:button>
             </div>
-            <div class="flex justify-center items-center space-x-2 mb-2">
-
-            </div>
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">Rated 4.97/5 from 500+ reviews</p>
+            <p class="text-sm text-zinc-600 dark:text-zinc-400">500+ хэрэглэгчээс 4.97/5 үнэлгээтэй</p>
         </div>
     </section>
+
+
+    <br>
+
+    <livewire:home/>
 @endsection
