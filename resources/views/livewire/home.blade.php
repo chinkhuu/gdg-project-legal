@@ -8,7 +8,7 @@
                     <!-- Image -->
                     <div class="w-full h-80 overflow-hidden">
                         <img
-                            src="{{ $lawyer->profile ?? 'https://ui-avatars.com/api/?name=' . urlencode($lawyer->name) . '&background=f59e0b&color=fff&size=320' }}"
+                            src="{{ Storage::url($lawyer->profile) ?? 'https://ui-avatars.com/api/?name=' . urlencode($lawyer->name) . '&background=f59e0b&color=fff&size=320' }}"
                             alt="{{ $lawyer->name }}"
                             class="w-full h-full object-cover"
                         >
