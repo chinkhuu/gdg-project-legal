@@ -8,15 +8,16 @@ use Livewire\Component;
 class Explanation extends Component
 {
 
-    public $explanations;
-
-    public function mount()
-    {
-        $this->explanations = \App\Models\Explanation::all();
-    }
+    public $search = '';
 
     public function render()
     {
-        return view('livewire.explanation')->layout('layouts.app');
+        $explanations = \App\Models\Explanation::query()
+            ->when($this->search, fn ($q) => $q->where('name', 'like', "%{$this->search}%"))
+            ->get();
+
+        return view('livewire.explanation', [
+            'explanations' => $explanations,
+        ])->layout('layouts.app');
     }
 }
