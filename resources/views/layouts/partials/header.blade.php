@@ -27,15 +27,15 @@
     </flux:navbar>
 
     <flux:spacer/>
-    <div
-        class="rounded-full bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-500 p-1 flex items-center p-1 pr-2.5 gap-2">
-        <div class="relative rounded-full size-6">
-            <img src="https://fluxui.dev/img/demo/prime.png" class="size-full rounded-full"/>
-            <div
-                class="absolute -bottom-px -right-px rounded-full size-2 border-2 border-red-50 dark:border-red-950 bg-red-600 dark:bg-red-500"></div>
-        </div>
-        <div class="text-sm font-medium text-red-600 dark:text-white">Live</div>
-    </div>
+{{--    <div--}}
+{{--        class="rounded-full bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-500 p-1 flex items-center p-1 pr-2.5 gap-2">--}}
+{{--        <div class="relative rounded-full size-6">--}}
+{{--            <img src="https://fluxui.dev/img/demo/prime.png" class="size-full rounded-full"/>--}}
+{{--            <div--}}
+{{--                class="absolute -bottom-px -right-px rounded-full size-2 border-2 border-red-50 dark:border-red-950 bg-red-600 dark:bg-red-500"></div>--}}
+{{--        </div>--}}
+{{--        <div class="text-sm font-medium text-red-600 dark:text-white">Live</div>--}}
+{{--    </div>--}}
     <flux:separator vertical variant="subtle" class="my-4 mx-3"/>
 
 
