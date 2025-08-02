@@ -41,6 +41,12 @@ return [
         'redirect' => env('GOOGLE_CALLBACK_REDIRECT')
     ],
 
+    'github' => [
+        'client_id' => env('GITHUB_CLIENT_ID'),
+        'client_secret' => env('GITHUB_CLIENT_SECRET'),
+        'redirect' => 'http://localhost:8001/auth/github/callback',
+    ],
+
     'openai' => [
         'api_key' => env('OPENAI_API_KEY'),
         'assistant_id' => env('OPENAI_ASSISTANT_ID'),
