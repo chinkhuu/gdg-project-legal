@@ -32,6 +32,6 @@ class ProviderCallbackController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('courses.my-courses');
+        return redirect()->route('home');
     }
 }
