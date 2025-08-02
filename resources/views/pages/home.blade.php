@@ -29,28 +29,24 @@
                 Шинэ мэдээ мэдээлэл
             </h2>
 
-            @foreach($informations as $info)
-                <div class="flex gap-6 animate-marquee w-max">
+            <!-- Зөвхөн нэг анимэйшн wrapper -->
+            <div class="flex gap-6 animate-marquee w-max">
+                @foreach($informations as $info)
                     <div class="bg-white p-6 rounded-2xl shadow-md w-96 min-h-[220px] shrink-0 text-left">
-                        <h2 class="text-lg font-semibold text-zinc-900">{{$info->title}}</h2>
+                        <h2 class="text-lg font-semibold text-zinc-900">{!! $info->title !!}</h2>
                         <p class="text-sm text-zinc-700 break-words">
-                            {{$info->description}}
+                            {!! $info->description !!}
                         </p>
                     </div>
-                </div>
-            @endforeach
-
+                @endforeach
+            </div>
         </div>
     </section>
 
     <style>
         @keyframes marquee {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
+            0%   { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
 
         .animate-marquee {
@@ -58,5 +54,4 @@
             display: flex;
         }
     </style>
-
 @endsection
