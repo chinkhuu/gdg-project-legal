@@ -8,14 +8,17 @@
             </h2>
 
             <div class="space-y-3 mb-6">
-                <flux:radio.group wire:model="selectedAnswer" label="Сонголтоо хийнэ үү:">
-                    @foreach($questions[$currentIndex]['answers'] as $answer)
-                        <flux:radio
+                @foreach($questions[$currentIndex]['answers'] as $answer)
+                    <label class="flex items-center space-x-2 text-sm text-gray-800">
+                        <input
+                            type="radio"
+                            wire:model="selectedAnswer"
                             value="{{ $answer['id'] }}"
-                            label="{{ $answer['text'] }}"
+                            class="h-4 w-4 border-gray-300 text-black focus:ring-black"
                         />
-                    @endforeach
-                </flux:radio.group>
+                        <span>{{ $answer['text'] }}</span>
+                    </label>
+                @endforeach
             </div>
 
             <flux:button variant="primary" type="submit" class="w-full">Илгээх</flux:button>
