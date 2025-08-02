@@ -1,46 +1,43 @@
-<div class="w-full px-4 py-8 space-y-4">
-    <h1 class="text-3xl font-bold text-zinc-800 text-center mb-6">
-        Нэр томьёонуудын тайлбар
-    </h1>
+<div class="bg-gray-50 py-16 rounded-3xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold text-gray-800 text-center mb-8">
+            Нэр томьёонуудын тайлбар
+        </h1>
 
-    @foreach($explanations as $term)
-        <div class="flex items-center justify-between bg-white rounded-2xl shadow p-4">
-            <!-- the “question” -->
-            <span class="text-lg font-medium text-zinc-900">
-                {{ $term->name }}
-            </span>
-
-            <!-- the button that triggers the modal -->
-            <flux:modal.trigger name="explanation-{{ $term->id }}">
-                <flux:button size="sm" variant="primary">
-                    Тайлбар
-                </flux:button>
-            </flux:modal.trigger>
-
-            <!-- the modal itself -->
-            <flux:modal name="explanation-{{ $term->id }}" class="md:max-w-xl">
-                <div class="space-y-4 p-4">
-                    <flux:heading size="lg">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            @forelse($explanations as $term)
+                <div
+                    class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 flex flex-col">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">
                         {{ $term->name }}
-                    </flux:heading>
+                    </h3>
+                    <p class="text-gray-600 flex-grow mb-4">
+                        {!! Str::limit($term->description, 100, '...')  !!}
+                    </p>
 
-                    <flux:text class="whitespace-pre-line">
-                        {!! $term->description !!}
-                    </flux:text>
+                    <div class="mt-auto">
+                        <flux:modal.trigger name="explanation-{{ $term->id }}">
+                            <flux:button class="w-full" variant="primary">Бүрэн унших</flux:button>
+                        </flux:modal.trigger>
+                    </div>
 
-{{--                    <div class="flex justify-end">--}}
-{{--                        <flux:button size="sm" @click="$dispatch('close')" variant="secondary">--}}
-{{--                            Хаах--}}
-{{--                        </flux:button>--}}
-{{--                    </div>--}}
+                    <flux:modal name="explanation-{{ $term->id }}" class="md:max-w-2xl">
+                        <div class="p-6">
+                            <flux:heading size="xl" class="mb-4">
+                                {{ $term->name }}
+                            </flux:heading>
+
+                            <div class="prose prose-lg max-w-none text-gray-700 whitespace-pre-line">
+                                {!! $term->description !!}
+                            </div>
+                        </div>
+                    </flux:modal>
                 </div>
-            </flux:modal>
+            @empty
+                <p class="text-center text-zinc-500 mt-8 col-span-full">
+                    Ямар ч тайлбар олдсонгүй.
+                </p>
+            @endforelse
         </div>
-    @endforeach
-
-    @if($explanations->isEmpty())
-        <p class="text-center text-zinc-500 mt-8">
-            Ямар ч тайлбар олдсонгүй.
-        </p>
-    @endif
+    </div>
 </div>

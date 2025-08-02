@@ -14,8 +14,6 @@ class Home extends Component
         $this->lawyers = Attorney::with('segment')->get();
     }
 
-
-
     public function render()
     {
         return view('livewire.home');

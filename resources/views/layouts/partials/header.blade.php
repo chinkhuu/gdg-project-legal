@@ -10,18 +10,7 @@
         <flux:navbar.item href="{{route('home')}}">Нүүр</flux:navbar.item>
 
         <flux:navbar.item href="{{route('lawyers')}}">Хуульчид</flux:navbar.item>
-
-        <flux:dropdown>
-            <flux:navbar.item icon:trailing="chevron-down">Гэж Юу Вэ?</flux:navbar.item>
-            <flux:navmenu>
-                <flux:navbar.item href="#">Хууль зүйг тайлбар толь</flux:navbar.item>
-                <flux:navbar.item href="#">Жишээ загварууд</flux:navbar.item>
-                <flux:navbar.item href="#">Files</flux:navbar.item>
-            </flux:navmenu>
-        </flux:dropdown>
-
-        <flux:navbar.item href="#">Хуульчид зөвлөж байна</flux:navbar.item>
-        <flux:navbar.item href="#">FAQ</flux:navbar.item>
+        <flux:navbar.item href="{{route('explanations')}}">Гэж Юу Вэ?</flux:navbar.item>
         <flux:navbar.item href="#">Бодит Түүхүүд</flux:navbar.item>
         <flux:navbar.item href="#">AI Чат</flux:navbar.item>
     </flux:navbar>

@@ -18,7 +18,6 @@
         </div>
     </section>
 
-
     <br>
 
     <livewire:home/>
