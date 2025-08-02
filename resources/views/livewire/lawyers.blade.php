@@ -61,7 +61,7 @@
                     <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col group">
                         <img
                             class="w-full h-60 object-cover"
-                            src="{{ $lawyer->profile ?? 'https://ui-avatars.com/api/?name=' . urlencode($lawyer->name) . '&background=f59e0b&color=fff&size=320' }}"
+                            src="{{ Storage::url($lawyer->profile) ?? 'https://ui-avatars.com/api/?name=' . urlencode($lawyer->name) . '&background=f59e0b&color=fff&size=320' }}"
                             alt="{{ $lawyer->name }}"
                         >
 

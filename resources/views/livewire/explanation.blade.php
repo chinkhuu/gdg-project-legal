@@ -14,7 +14,7 @@
                     <p class="text-gray-600 flex-grow mb-4">
                         {!! Str::limit($term->description, 100, '...')  !!}
                     </p>
-
+                    <br>
                     <div class="mt-auto">
                         <flux:modal.trigger name="explanation-{{ $term->id }}">
                             <flux:button class="w-full" variant="primary">Бүрэн унших</flux:button>
