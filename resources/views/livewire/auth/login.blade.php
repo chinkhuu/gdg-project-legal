@@ -118,7 +118,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
         </div>
 
         <div class="flex items-center justify-end">
-            <flux:button href="{{ route('auth.redirect','google') }}" variant="primary" class="w-full">{{ __('Google Auth') }}</flux:button>
+            <flux:button href="{{ route('auth.redirect','google') }}" variant="primary" class="w-full">{{ __('Sign up with Google') }}</flux:button>
         </div>
     </form>
 
