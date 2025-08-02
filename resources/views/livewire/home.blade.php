@@ -47,7 +47,7 @@
         </div>
 
         <div class="text-center mt-12">
-            <flux:button href="{{route('lawyers')}}" variant="primary">Дэлгэрэнгүй</flux:button>
+            <flux:button href="{{route('lawyers')}}" variant="primary">Бүх хуульчид</flux:button>
         </div>
     </div>
 </div>
