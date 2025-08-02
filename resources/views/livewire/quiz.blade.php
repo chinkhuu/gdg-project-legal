@@ -8,25 +8,17 @@
             </h2>
 
             <div class="space-y-3 mb-6">
-                @foreach($questions[$currentIndex]['answers'] as $answer)
-                    <label class="flex items-center space-x-2">
-                        <input
-                            type="radio"
-                            wire:model="selectedAnswer"
+                <flux:radio.group wire:model="selectedAnswer" label="Сонголтоо хийнэ үү:">
+                    @foreach($questions[$currentIndex]['answers'] as $answer)
+                        <flux:radio
                             value="{{ $answer['id'] }}"
-                            class="form-radio h-4 w-4 text-blue-600"
+                            label="{{ $answer['text'] }}"
                         />
-                        <span>{{ $answer['text'] }}</span>
-                    </label>
-                @endforeach
+                    @endforeach
+                </flux:radio.group>
             </div>
 
-            <button
-                type="submit"
-                class="px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-            >
-                Илгээх
-            </button>
+            <flux:button variant="primary" type="submit" class="w-full">Илгээх</flux:button>
         </form>
     @else
         <div class="text-center">
@@ -34,12 +26,8 @@
             <p class="text-lg mb-4">
                 Таны оноо: <span class="font-semibold">{{ $score }}</span> / {{ count($questions) }}
             </p>
-            <a
-                href="{{ route('quizzes') }}"
-                class="inline-block px-4 py-2 bg-zinc-200 text-zinc-900 rounded hover:bg-zinc-300 transition"
-            >
-                Бүх сорил үзэх
-            </a>
+
+            <flux:button href="{{ route('quizzes') }}" variant="primary" class="w-full">Бүх сорил үзэх</flux:button>
         </div>
     @endif
 </div>

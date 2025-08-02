@@ -13,11 +13,11 @@
         <flux:navbar.item href="{{route('explanations')}}">Гэж Юу Вэ?</flux:navbar.item>
         <flux:navbar.item href="{{route('quizzes')}}">Хуулийн сорил</flux:navbar.item>
         <flux:navbar.item href="{{route('chat')}}">AI Чат</flux:navbar.item>
-        <flux:navbar.item href="#">Кейс тохиолдлууд</flux:navbar.item>
 
         <flux:dropdown>
             <flux:navbar.item icon:trailing="chevron-down">Coming Soon</flux:navbar.item>
             <flux:navmenu>
+                <flux:navbar.item href="#">Кейс тохиолдлууд</flux:navbar.item>
                 <flux:navbar.item href="#">Хуульчид зөвлөж байна</flux:navbar.item>
                 <flux:navbar.item href="#">Түгээмэл асуул</flux:navbar.item>
                 <flux:navbar.item href="#">Гомдпол санал</flux:navbar.item>
