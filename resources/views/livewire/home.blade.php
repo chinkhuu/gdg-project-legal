@@ -4,9 +4,8 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
             @forelse($lawyers as $lawyer)
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col group">
-                    <!-- Image -->
-                    <div class="w-full h-80 overflow-hidden">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col group min-h-[32rem]">
+                    <div class="w-full h-96 overflow-hidden">
                         <img
                             src="{{ Storage::url($lawyer->profile) ?? 'https://ui-avatars.com/api/?name=' . urlencode($lawyer->name) . '&background=f59e0b&color=fff&size=320' }}"
                             alt="{{ $lawyer->name }}"
@@ -14,7 +13,6 @@
                         >
                     </div>
 
-                    <!-- Info -->
                     <div class="p-6 flex-grow flex flex-col justify-between">
                         <div class="flex justify-between items-start">
                             <div>
@@ -23,7 +21,6 @@
                                     {{ $lawyer->segment->name ?? 'Мэргэжилтэн' }}
                                 </p>
                             </div>
-                            {{-- Статический рейтинг 4.7/5 --}}
                             <div class="flex items-baseline space-x-1">
                                 <span class="text-xl font-semibold text-yellow-400">4.7</span>
                                 <span class="text-gray-500">/5</span>

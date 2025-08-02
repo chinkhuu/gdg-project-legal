@@ -13,8 +13,7 @@
                 <flux:select wire:model.live="selectedSegment" placeholder="..." clearable>
                     <flux:select.option value="">-- Бүх чиглэлээр --</flux:select.option>
                     @foreach($segments as $segment)
-
-                    <flux:select.option value="{{$segment->id}}">{{ $segment->name }}</flux:select.option>
+                        <flux:select.option value="{{$segment->id}}">{{ $segment->name }}</flux:select.option>
                     @endforeach
 
                 </flux:select>
