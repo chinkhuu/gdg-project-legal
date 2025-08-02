@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Services\GeminiService;
+use League\CommonMark\CommonMarkConverter;
 use Livewire\Component;
 
 class Chat extends Component
@@ -14,7 +15,7 @@ class Chat extends Component
     public function mount()
     {
         $this->messages = [
-            ['sender' => 'ai', 'text' => 'Сайн байна уу! Асуултаа бичээд илгээнэ үү.']
+            ['sender' => 'ai', 'text' => 'Сайн байна уу! Танд юугаар туслах вэ?']
         ];
     }
 
@@ -30,13 +31,17 @@ class Chat extends Component
             'text' => $text,
         ];
 
+        $this->dispatch('scroll-to-bottom');
         $this->loading = true;
         $this->question = '';
 
         try {
-            $answer = $gemini->ask($text);
+            $rawAnswer = $gemini->ask($text);
+            $converter = new CommonMarkConverter();
+            $answer = $converter->convert($rawAnswer)->getContent();
+
         } catch (\Throwable $e) {
-            $answer = 'Уучлаарай, холболт алдаа гарлаа.';
+            $answer = '<p>Уучлаарай, холболтын алдаа гарлаа. Та дараа дахин оролдоно уу.</p>';
         }
 
         $this->messages[] = [
@@ -45,7 +50,6 @@ class Chat extends Component
         ];
 
         $this->loading = false;
-
         $this->dispatch('scroll-to-bottom');
     }
 
