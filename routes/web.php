@@ -8,6 +8,9 @@ Route::get('/', function () {
     return view('pages.home');
 })->name('home');
 
+Route::get('/auth/{provider}/redirect', \App\Http\Controllers\Socialite\ProviderRedirectController::class)->name('auth.redirect');
+Route::get('/auth/{provider}/callback', \App\Http\Controllers\Socialite\ProviderCallbackController::class)->name('auth.callback');
+
 Route::get('/lawyers' , \App\Livewire\Lawyers::class )->name('lawyers');
 Route::get('/explanations' , \App\Livewire\Explanation::class )->name('explanations');
 Route::get('/chat', \App\Livewire\Chat::class)->name('chat');
