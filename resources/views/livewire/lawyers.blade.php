@@ -58,9 +58,9 @@
 
             <div wire:loading.remove class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 @forelse($lawyers as $lawyer)
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col group">
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col group min-h-[32rem]">
                         <img
-                            class="w-full h-60 object-cover"
+                            class="w-full h-96 object-cover object-top"
                             src="{{ Storage::url($lawyer->profile) ?? 'https://ui-avatars.com/api/?name=' . urlencode($lawyer->name) . '&background=f59e0b&color=fff&size=320' }}"
                             alt="{{ $lawyer->name }}"
                         >
