@@ -11,8 +11,8 @@
                 Манай платформ нь таны хэрэгцээг тодорхойлж, шаардлагатай мэдээллийг автоматаар хүргэж, таны цагийг хэмнэнэ.
             </p>
             <div class="flex justify-center gap-4 mb-8">
-                <flux:button variant="primary">Үйлчилгээ авах</flux:button>
-                <flux:button variant="outline">Дэлгэрэнгүй</flux:button>
+                <flux:button href="{{route('chat')}}" variant="primary">Үйлчилгээ авах</flux:button>
+                <flux:button href="{{route('lawyers')}}" variant="outline">Хуульчидтай холбогдох</flux:button>
             </div>
             <p class="text-sm text-zinc-600 dark:text-zinc-400">500+ хэрэглэгчээс 4.97/5 үнэлгээтэй</p>
         </div>
