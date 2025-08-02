@@ -11,7 +11,7 @@
         <flux:navlist.item href="{{ route('home') }}">Нүүр</flux:navlist.item>
         <flux:navlist.item href="{{ route('lawyers') }}">Хуульчид</flux:navlist.item>
         <flux:navlist.item href="{{ route('explanations') }}">Гэж Юу Вэ?</flux:navlist.item>
-        <flux:navlist.item href="#">Бодит Түүхүүд</flux:navlist.item>
+        <flux:navlist.item href="{{route('quizzes')}}">Хуулийн сорил</flux:navlist.item>
         <flux:navlist.item href="{{ route('chat') }}">AI Чат</flux:navlist.item>
     </flux:navlist>
 
