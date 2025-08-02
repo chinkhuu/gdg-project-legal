@@ -12,7 +12,7 @@
         <flux:navbar.item href="{{route('lawyers')}}">Хуульчид</flux:navbar.item>
         <flux:navbar.item href="{{route('explanations')}}">Гэж Юу Вэ?</flux:navbar.item>
         <flux:navbar.item href="#">Бодит Түүхүүд</flux:navbar.item>
-        <flux:navbar.item href="#">AI Чат</flux:navbar.item>
+        <flux:navbar.item href="{{route('chat')}}">AI Чат</flux:navbar.item>
     </flux:navbar>
 
     <flux:spacer/>

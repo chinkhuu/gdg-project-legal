@@ -10,14 +10,7 @@ Route::get('/', function () {
 
 Route::get('/lawyers' , \App\Livewire\Lawyers::class )->name('lawyers');
 Route::get('/explanations' , \App\Livewire\Explanation::class )->name('explanations');
-
-Route::get('/gemini-chat', function () {
-    return view('chat');
-});
-
-Route::get('/key-test', function (){
-    return dd(env('GEMINI_API_KEY'));
-});
+Route::get('/chat', \App\Livewire\Chat::class)->name('chat');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

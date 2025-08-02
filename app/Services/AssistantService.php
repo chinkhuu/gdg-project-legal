@@ -19,7 +19,6 @@ class AssistantService
 
     public function getOrCreateThread(): string
     {
-        // If we don’t already have one, hit the API and store it
         if (! Session::has('openai_thread_id')) {
             $response = Http::withToken($this->apiKey)
                 ->post("{$this->base}/assistants/{$this->assistantId}/threads", [
@@ -36,7 +35,6 @@ class AssistantService
             Session::put('openai_thread_id', $threadId);
         }
 
-        // At this point we're guaranteed the session has a non-null, non-empty string
         return Session::get('openai_thread_id');
     }
 
@@ -51,7 +49,6 @@ class AssistantService
                 'content' => $userMessage,
             ]);
 
-        // Run үүсгэж, streaming=true параметр явуулна (Assistant API-д үүнийг дэмжиж байвал)
         $psr = (new \GuzzleHttp\Client())
             ->request('POST', "{$this->base}/assistants/{$this->assistantId}/threads/{$threadId}/runs", [
                 'headers' => [
@@ -64,7 +61,6 @@ class AssistantService
 
         $body = $psr->getBody();
 
-        // Бүх chunk-уудыг уншин гаргах
         while (! $body->eof()) {
             $chunk = $body->read(1024);
             $onChunk($chunk);
