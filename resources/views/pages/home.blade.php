@@ -8,7 +8,8 @@
                 Хуулийн <span class="italic">шуурхай</span> шийдлийг танд зориуллаа.
             </h1>
             <p class="text-lg mb-8">
-                Манай платформ нь таны хэрэгцээг тодорхойлж, шаардлагатай мэдээллийг автоматаар хүргэж, таны цагийг хэмнэнэ.
+                Манай платформ нь таны хэрэгцээг тодорхойлж, шаардлагатай мэдээллийг автоматаар хүргэж, таны цагийг
+                хэмнэнэ.
             </p>
             <div class="flex justify-center gap-4 mb-8">
                 <flux:button href="{{route('chat')}}" variant="primary">Үйлчилгээ авах</flux:button>
@@ -21,4 +22,41 @@
     <br>
 
     <livewire:home/>
+
+    <section class="bg-blue-50 dark:bg-zinc-900 text-zinc-900 dark:text-white py-20 rounded-3xl shadow-md mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-10">
+                Шинэ мэдээ мэдээлэл
+            </h2>
+
+            @foreach($informations as $info)
+                <div class="flex gap-6 animate-marquee w-max">
+                    <div class="bg-white p-6 rounded-2xl shadow-md w-96 min-h-[220px] shrink-0 text-left">
+                        <h2 class="text-lg font-semibold text-zinc-900">{{$info->title}}</h2>
+                        <p class="text-sm text-zinc-700 break-words">
+                            {{$info->description}}
+                        </p>
+                    </div>
+                </div>
+            @endforeach
+
+        </div>
+    </section>
+
+    <style>
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+            display: flex;
+        }
+    </style>
+
 @endsection

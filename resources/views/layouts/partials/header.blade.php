@@ -21,6 +21,9 @@
                 <flux:navbar.item href="#">Хуульчид зөвлөж байна</flux:navbar.item>
                 <flux:navbar.item href="#">Түгээмэл асуул</flux:navbar.item>
                 <flux:navbar.item href="#">Гомдпол санал</flux:navbar.item>
+                <flux:navbar.item href="#">Зөвлөгөөний цаг захиалга</flux:navbar.item>
+                <flux:navbar.item href="#">Үнэгүй өмгөөлөл</flux:navbar.item>
+
             </flux:navmenu>
         </flux:dropdown>
 

@@ -5,7 +5,8 @@ use Inertia\Inertia;
 use Livewire\Volt\Volt;
 
 Route::get('/', function () {
-    return view('pages.home');
+    $informations = \App\Models\Information::all();
+    return view('pages.home', compact('informations'));
 })->name('home');
 
 Route::get('/auth/{provider}/redirect', \App\Http\Controllers\Socialite\ProviderRedirectController::class)->name('auth.redirect');
