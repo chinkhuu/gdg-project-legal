@@ -26,6 +26,7 @@
                 <flux:navbar.item href="#">Rating</flux:navbar.item>
                 <flux:navbar.item href="#">Chat System</flux:navbar.item>
                 <flux:navbar.item href="#">AI Chat илүү сайжруулалт</flux:navbar.item>
+                <flux:navbar.item href="#">Хуулийн шинэчлэгдсэн өөрчлөлтүүд</flux:navbar.item>
             </flux:navmenu>
         </flux:dropdown>
 
